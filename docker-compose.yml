@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  addressbookapi:
+    image: ${DOCKER_REGISTRY-}addressbookapi
+    build:
+      context: .
+      dockerfile: Dockerfile

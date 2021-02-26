@@ -1,0 +1,20 @@
+version: '3.4'
+
+services:
+  addressbookapi:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://+:443;http://+:80
+    ports:
+      - "80"
+      - "443"
+    depends_on:
+        - postgresqldb
+  postgresqldb:
+    container_name: postgresqldb
+    image: postgres:latest
+    ports: 
+      - "5433:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=allstar@12
