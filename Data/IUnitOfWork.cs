@@ -6,7 +6,7 @@ namespace AddressBookApi.Data
 {
     public interface IUnitOfWork : IDisposable
     {
-        IRepository<User> UserRepository { get; }
+        IRepository<Contact> ContactRepository { get; }
         IRepository<PhoneNumber> PhoneNumberRepository { get; }
         IRepository<EmailAddress> EmailAddressRepository { get; }
         int SaveChanges();

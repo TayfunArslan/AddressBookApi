@@ -2,10 +2,10 @@
 {
     public class EmailAddress : BaseEntity
     {
-        public int UserId { get; set; }
+        public int ContactId { get; set; }
         public string Value { get; set; }
         public int EmailTypeId { get; set; }
 
-        public User User { get; set; }
+        public Contact Contact { get; set; }
     }
 }

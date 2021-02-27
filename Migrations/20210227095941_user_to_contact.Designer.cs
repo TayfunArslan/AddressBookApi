@@ -3,15 +3,17 @@ using System;
 using AddressBookApi.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace AddressBookApi.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210227095941_user_to_contact")]
+    partial class user_to_contact
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -53,7 +55,7 @@ namespace AddressBookApi.Migrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<int>("ContactId")
+                    b.Property<int?>("ContactId")
                         .HasColumnType("integer");
 
                     b.Property<DateTime>("CreateDateTime")
@@ -67,6 +69,9 @@ namespace AddressBookApi.Migrations
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("boolean");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("integer");
 
                     b.Property<string>("Value")
                         .HasColumnType("text");
@@ -85,7 +90,7 @@ namespace AddressBookApi.Migrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<int>("ContactId")
+                    b.Property<int?>("ContactId")
                         .HasColumnType("integer");
 
                     b.Property<DateTime>("CreateDateTime")
@@ -98,6 +103,9 @@ namespace AddressBookApi.Migrations
                         .HasColumnType("boolean");
 
                     b.Property<int>("PhoneNumberType")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("UserId")
                         .HasColumnType("integer");
 
                     b.Property<string>("Value")
@@ -114,9 +122,7 @@ namespace AddressBookApi.Migrations
                 {
                     b.HasOne("AddressBookApi.Data.Entity.Contact", "Contact")
                         .WithMany("EmailAddresses")
-                        .HasForeignKey("ContactId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ContactId");
 
                     b.Navigation("Contact");
                 });
@@ -125,9 +131,7 @@ namespace AddressBookApi.Migrations
                 {
                     b.HasOne("AddressBookApi.Data.Entity.Contact", "Contact")
                         .WithMany("PhoneNumbers")
-                        .HasForeignKey("ContactId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ContactId");
 
                     b.Navigation("Contact");
                 });

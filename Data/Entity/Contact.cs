@@ -2,7 +2,7 @@
 
 namespace AddressBookApi.Data.Entity
 {
-    public class User : BaseEntity
+    public class Contact : BaseEntity
     {
         public string Firstname { get; set; }
         public string Lastname { get; set; }

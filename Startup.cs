@@ -30,10 +30,10 @@ namespace AddressBookApi
             services.AddDbContext<AppDbContext>(opt => opt.UseNpgsql(Configuration.GetConnectionString("AddressBookDbConnection")));
             
             services.AddTransient<IUnitOfWork, UnitOfWork>();
-            services.AddScoped<IRepository<User>, Repository<User>>();
+            services.AddScoped<IRepository<Contact>, Repository<Contact>>();
             services.AddScoped<IRepository<EmailAddress>, Repository<EmailAddress>>();
             services.AddScoped<IRepository<PhoneNumber>, Repository<PhoneNumber>>();
-            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IContactService, ContactService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -8,7 +8,7 @@ namespace AddressBookApi.Data
     public class UnitOfWork : IUnitOfWork
     {
         private readonly AppDbContext _context;
-        private IRepository<User> _userRepository;
+        private IRepository<Contact> _contactRepository;
         private IRepository<PhoneNumber> _phoneNumberRepository;
         private IRepository<EmailAddress> _emailAddressRepository;
 
@@ -17,9 +17,9 @@ namespace AddressBookApi.Data
             _context = context;
         }
 
-        public IRepository<User> UserRepository
+        public IRepository<Contact> ContactRepository
         {
-            get { return _userRepository ??= new Repository<User>(_context); }
+            get { return _contactRepository ??= new Repository<Contact>(_context); }
         }
 
         public IRepository<PhoneNumber> PhoneNumberRepository

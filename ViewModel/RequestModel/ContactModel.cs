@@ -2,8 +2,9 @@
 
 namespace AddressBookApi.ViewModel.RequestModel
 {
-    public class UserModel
+    public class ContactModel
     {
+        public int Id { get; set; }
         public string Firstname { get; set; }
         public string Lastname { get; set; }
         public List<EmailAddressViewModel> EmailAddresses { get; set; }

@@ -9,13 +9,13 @@ namespace AddressBookApi.Util
     {
         public MapperProfile()
         {
-            CreateMap<User, UserViewModel>();
-            CreateMap<UserViewModel, User>();
+            CreateMap<Contact, ContactViewModel>();
+            CreateMap<ContactViewModel, Contact>();
             CreateMap<EmailAddress, EmailAddressViewModel>();
             CreateMap<EmailAddressViewModel, EmailAddress>();
             CreateMap<PhoneNumber, PhoneNumberViewModel>();
             CreateMap<PhoneNumberViewModel, PhoneNumber>();
-            CreateMap<User, UserModel>();
+            CreateMap<Contact, ContactModel>();
         }
     }
 }
